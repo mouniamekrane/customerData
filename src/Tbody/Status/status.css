@@ -1,0 +1,34 @@
+.styleStatus {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #aa2525;
+}
+
+td {
+    line-height: 8px;
+}
+
+.active {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    color: #FFFFFF;
+    background: #0A65FF;
+    border: 1px solid #606F89;
+    border-radius: 11px;
+    padding: 5px;
+}
+
+.inactive {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    color: #606F89;
+    border: 1px solid #606F89;
+    border-radius: 11px;
+    padding: 5px;
+}

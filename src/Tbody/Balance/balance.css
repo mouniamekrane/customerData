@@ -1,0 +1,27 @@
+.stylebalance {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 17px;
+    color: #2E3B52;
+}
+
+.styleCurrency {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #606F89;
+    line-height: 0px;
+}
+
+td {
+    line-height: 8px;
+}
+
+.red-balance {
+    color: red;
+}
+
+.green-balance {
+    color: green;
+}

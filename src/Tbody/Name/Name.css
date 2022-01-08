@@ -1,0 +1,18 @@
+.styleName {
+    color: #2E3B52;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.styleNumber {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #606F89;
+}
+
+td {
+    line-height: 8px;
+}

@@ -1,0 +1,150 @@
+table {
+    width: 100%;
+    color: #606F89;
+    border-collapse: collapse;
+    line-height: 51px;
+}
+
+.thead {
+    background: #F4F7FC;
+}
+
+tr:nth-child() {
+    background: white;
+}
+
+tr:nth-child(even) {
+    background: #F4F7FC;
+}
+
+.styleHeader {
+    font-style: normal;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: #606F89;
+    font-weight: 700;
+}
+
+tr {
+    height: 66px
+}
+
+.checkbox {
+    border: 1px solid #6F809E;
+    box-sizing: border-box;
+    border-radius: 3px;
+    Width: 17px;
+    Height: 20px;
+}
+
+.imageDelete {
+    height: 21px;
+}
+
+.imageEdit {
+    height: 21px;
+}
+
+.imageMore {
+    position: absolute;
+    height: 21px;
+    Width: 20px;
+    top: 106px;
+    left: 972px;
+}
+
+.active {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    color: #FFFFFF;
+    background: #0A65FF;
+    border: 1px solid #606F89;
+    border-radius: 11px;
+    padding: 5px;
+}
+
+.inactive {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    color: #606F89;
+    border: 1px solid #606F89;
+    border-radius: 11px;
+    padding: 5px;
+}
+
+.red-balance {
+    color: red;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 17px
+}
+
+.green-balance {
+    color: green;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 17px
+}
+
+.imagesortName {
+    position: absolute;
+    width: 14px;
+    height: 15px;
+    left: 154px;
+    top: 109px;
+}
+
+.imagesortStatus {
+    position: absolute;
+    width: 14px;
+    height: 16px;
+    left: 936px;
+    top: 109px;
+}
+
+.header {
+    padding: -2px 0 0 17px;
+    display: flex;
+    justify-content: space-between;
+    background: #F4F7FC;
+}
+
+.imageFilter {
+    position: absolute;
+    left: 12px;
+    top: 30px;
+}
+
+.imageSearch {
+    position: absolute;
+    left: 80px;
+    right: 4%;
+    top: 23px;
+    bottom: 7%;
+    Width: 23px;
+    Height: 22px;
+    background: #DAE1EC;
+    padding-top: -3px;
+    padding-right: -1px;
+    padding: 10px;
+    border-radius: 1px;
+}
+
+.searching {
+    border: 0;
+    background: #DAE1EC;
+    outline: none;
+    background: #DAE1EC;
+    width: 300px;
+    border-radius: 4px;
+    Height: 40px;
+    border-radius: 1px;
+    margin-left: 122px;
+    margin-top: 23px;
+    margin-right: 654px;
+    margin-bottom: 18px;
+}

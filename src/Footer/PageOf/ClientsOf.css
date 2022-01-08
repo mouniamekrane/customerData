@@ -1,0 +1,10 @@
+.of {
+    display: flex;
+    grid-gap: 3px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.05em;
+    color: #606F89;
+    padding-left: 33px;
+}

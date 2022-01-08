@@ -1,0 +1,6 @@
+.footer {
+    display: flex;
+    align-items: center;
+    grid-gap: 32px;
+    height: 41px;
+}
