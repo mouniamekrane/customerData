@@ -281,7 +281,7 @@ export const TableBodyClients = () => {
         <img src="./images/Filter.image.png" alt="" className='imageFilter'></img>
         <div>
           <img src="./images/search.png" alt="" className='imageSearch'></img>
-          <input type='text' placeholder='Search' className='searching' id='searchId' onChange={(e) => { setsearchElement(e.target.value); }} />
+          <input type='search' placeholder='Search' className='searching' id='searchId' onChange={(e) => { setsearchElement(e.target.value); }} />
         </div>
         <ButtonAdd />
       </header>
