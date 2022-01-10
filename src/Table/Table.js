@@ -7,7 +7,11 @@ import { ClientDeposit } from '../Tbody/Deposit/deposit.js'
 import { ClientStatus } from '../Tbody/Status/status.js'
 import { ButtonAdd } from '../Tbody/ButtonAdd/button.js';
 import { useState } from 'react';
-
+import '../Footer/footer.css'
+import { CountActive } from '../Footer/ActiveClients/activeClients.js'
+import { RowsPerPageClients } from '../Footer/RowsPerPage/RowsPerPage.js'
+import { ClientsOfPage } from '../Footer/PageOf/ClientsOf.js'
+import { NextPageClient } from '../Footer/Pagination/nextPage.js'
 const clients = [{
   name: 'israe moutawkil',
   number: 5665489891,
@@ -322,6 +326,12 @@ export const TableBodyClients = () => {
           })}
         </tbody>
       </table>
+      <div className='footer'>
+        <CountActive />
+        <RowsPerPageClients />
+        <ClientsOfPage />
+        <NextPageClient />
+      </div>
     </div>
   )
 }

@@ -1,6 +1,8 @@
+
 import './activeClients.css'
-export const CountActive = () => {
-    return (
-        <div className="clients" id="actived-clients">ACTIVE CUSTOMERS :</div>
-    )
+export const CountActive = ({ clientsToCount }) => {
+    return clientsToCount.filter((client) => {
+        return client.status === "active";
+    }).length;
+    ;
 }
