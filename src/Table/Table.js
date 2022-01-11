@@ -260,25 +260,40 @@ const clients = [{
 },
 
 ];
+
 export const TableBodyClients = () => {
   const [searchElement, setsearchElement] = useState("");
-  const [data, setdata] = useState(clients)
-  const [order, setorder] = useState("ASC")
-  const sorting = (column) => {
-    if (order === "ASC") {
-      const sorted = [...data].sort((a, b) =>
-        a[column].toLowerCase() > b[column].toLowerCase() ? 1 : -1
-      );
-      setdata(sorted)
-      setorder("DSC")
-    } else if (order === "DSC") {
-      const sorted = [...data].sort((a, b) =>
-        a[column].toLowerCase() < b[column].toLowerCase() ? 1 : -1
-      );
-      setdata(sorted)
-      setorder("ASC")
+  const [users, setUsers] = useState(clients.slice(0, 10))
+  const [pageNumber, setPageNumber] = useState(0)
+  const usersPerPagee = 10
+  const pages = pageNumber * usersPerPagee
+  const displayUsers = users.slice(pagesVisited, pages + usersPerPagee).filter((val) => {
+    if (searchElement === "") {
+      return val;
+    } else if (val.name.toLowerCase().includes(searchElement.toLowerCase()) || val.description.toLowerCase().includes(searchElement.toLowerCase())) {
+      return val
     }
-  }
+  }).map((client) => {
+    return (
+      <tbody>
+        <tr>
+          <td><input className='checkbox' type='checkbox'></input></td>
+          <ClientName name={client.name} number={client.number} />
+          <ClientDescription description={client.description} />
+          <ClientRate rate={client.rate} currency={client.currency} />
+          <ClientBalance className={client.balance > 0 ? "green-balance" : "red-balance"} balance={client.balance} currency={client.currency} />
+          <ClientDeposit deposit={client.deposit} currency={client.currency} />
+          <ClientStatus className={client.status === "active" ? "active" : "inactive"} status={client.status} currency={client.currency} />
+          <td><img src="./images/edit.png" alt="" className='imageEdit'></img></td>
+          <td><img src="./images/delete.poubelle.png" alt="" className='imageDelete'></img></td>
+        </tr>
+      </tbody>
+    )
+  })
+
+  const pageCount = Math.ceil(users.length / usersPerPagee)
+
+
   return (
     <div>
       <header className="header">
@@ -293,38 +308,17 @@ export const TableBodyClients = () => {
         <thead className="thead">
           <tr>
             <th><input className='checkbox' type='checkbox'></input></th>
-            <th className='styleHeader'>Name<img onClick={() => sorting('name')} src="./images/sort-up.png" alt="" className='imagesortName'></img></th>
+            <th className='styleHeader'>Name<img src="./images/sort-up.png" alt="" className='imagesortName'></img></th>
             <th className='styleHeader'>DESCRIPTION</th>
             <th className='styleHeader'>RATE</th>
             <th className='styleHeader'>BALANCE</th>
             <th className='styleHeader'>DEPOSIT</th>
-            <th className='styleHeader'>STATUS<img onClick={() => sorting('status')} src="./images/sort-up.png" alt="" className='imagesortStatus'></img></th>
+            <th className='styleHeader'>STATUS<img src="./images/sort-up.png" alt="" className='imagesortStatus'></img></th>
             <th className='styleHeader'><img src="./images/point.png" alt="" className='imageMore'></img></th>
             <th className='styleHeader'><i id="sept" class="fa fa-ellipsis-h" aria-hidden="true"></i></th>
           </tr>
         </thead>
-        <tbody>
-          {clients.filter((val) => {
-            if (searchElement === "") {
-              return val;
-            } else if (val.name.toLowerCase().includes(searchElement.toLowerCase()) || val.description.toLowerCase().includes(searchElement.toLowerCase())) {
-              return val
-            }
-          }).map((client) => {
-            return (
-              <tr>
-                <td><input className='checkbox' type='checkbox'></input></td>
-                <ClientName name={client.name} number={client.number} />
-                <ClientDescription description={client.description} />
-                <ClientRate rate={client.rate} currency={client.currency} />
-                <ClientBalance className={client.balance > 0 ? "green-balance" : "red-balance"} balance={client.balance} currency={client.currency} />
-                <ClientDeposit deposit={client.deposit} currency={client.currency} />
-                <ClientStatus className={client.status === "active" ? "active" : "inactive"} status={client.status} currency={client.currency} />
-                <td><img src="./images/edit.png" alt="" className='imageEdit'></img></td>
-                <td><img src="./images/delete.poubelle.png" alt="" className='imageDelete'></img></td>
-              </tr>)
-          })}
-        </tbody>
+        {displayUsers}
       </table>
       <div className='footer'>
         <CountActive />
@@ -335,3 +329,4 @@ export const TableBodyClients = () => {
     </div>
   )
 }
+
