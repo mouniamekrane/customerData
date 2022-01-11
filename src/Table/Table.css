@@ -148,25 +148,3 @@ tr {
     padding: 9px;
     border-radius: 1px;
 }
-
-.paginationBttns {
-    width: 80%;
-    height: 40px;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
-
-.paginationBttns a {
-    padding: 10px;
-    margin: 8px;
-    border-radius: 5px;
-    border: 1px solid green;
-    color: rebeccapurple;
-    cursor: pointer;
-}
-
-.paginationBttns a:hover {
-    color: white;
-    background-color: blue;
-}
