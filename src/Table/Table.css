@@ -119,21 +119,6 @@ tr {
     top: 30px;
 }
 
-.imageSearch {
-    position: absolute;
-    left: 80px;
-    right: 4%;
-    top: 23px;
-    bottom: 7%;
-    Width: 23px;
-    Height: 22px;
-    background: #DAE1EC;
-    padding-top: -3px;
-    padding-right: -1px;
-    padding: 10px;
-    border-radius: 1px;
-}
-
 .searching {
     border: 0;
     background: #DAE1EC;
@@ -147,4 +132,41 @@ tr {
     margin-top: 23px;
     margin-right: 654px;
     margin-bottom: 18px;
+}
+
+.imageSearch {
+    position: absolute;
+    left: 83px;
+    right: 10%;
+    top: 23px;
+    bottom: 7%;
+    Width: 23px;
+    Height: 22px;
+    background: #DAE1EC;
+    padding-top: -3px;
+    padding-right: -1px;
+    padding: 9px;
+    border-radius: 1px;
+}
+
+.paginationBttns {
+    width: 80%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.paginationBttns a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid green;
+    color: rebeccapurple;
+    cursor: pointer;
+}
+
+.paginationBttns a:hover {
+    color: white;
+    background-color: blue;
 }

@@ -10,6 +10,7 @@ export const TableFooter = () => {
             <RowsPerPageClients />
             <ClientsOfPage />
             <NextPageClient />
+
         </div>
     )
 }
