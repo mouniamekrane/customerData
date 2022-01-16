@@ -263,24 +263,16 @@ const clients = [{
 ];
 export const TableBodyClients = () => {
   const [searchElement, setsearchElement] = useState("");
-  const [users, setUsers] = useState(clients.slice(0, 10))
-  const [data, setdata] = useState(clients)
-  const [order, setorder] = useState("ASC")
-  const sorting = (column) => {
-    if (order === "ASC") {
-      const sorted = [...data].sort((a, b) =>
-        a[column].toLowerCase() > b[column].toLowerCase() ? 1 : -1
-      );
-      setdata(sorted)
-      setorder("DSC")
-    } else if (order === "DSC") {
-      const sorted = [...data].sort((a, b) =>
-        a[column].toLowerCase() < b[column].toLowerCase() ? 1 : -1
-      );
-      setdata(sorted)
-      setorder("ASC")
-    }
-  }
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
+  const nextPaggination = () => {
+    setPage(currentPage = currentPage > 2 ? currentPage - 1 : 0);
+  };
+
+  const previousPagination = () => {
+    setPage(currentPage => `${(currentPage + 1) * rowsPerPage}` < 20 ? currentPage + 1 : 0);
+  };
   return (
     <div>
       <header className="header">
@@ -312,7 +304,7 @@ export const TableBodyClients = () => {
             } else if (val.name.toLowerCase().includes(searchElement.toLowerCase()) || val.description.toLowerCase().includes(searchElement.toLowerCase())) {
               return val
             }
-          }).map((client) => {
+          }).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((client) => {
             return (
               <tr>
                 <td><input className='checkbox' type='checkbox'></input></td>
@@ -332,7 +324,7 @@ export const TableBodyClients = () => {
         <CountActive ClientsToCount={clients} />
         <RowsPerPageClients />
         <ClientsOfPage />
-        <NextPageClient />
+        <NextPageClient nextPage={nextPaggination} previousPage={previousPagination} />
       </div>
     </div>
   )
