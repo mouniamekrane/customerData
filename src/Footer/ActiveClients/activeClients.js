@@ -1,10 +1,10 @@
 import './activeClients.css'
 export const CountActive = ({ ClientsToCount }) => {
-    const ActiveArray = []
+    const ActiveArray = [];
     ClientsToCount.filter((client) => {
         if (client.status === 'active') {
-            ActiveArray.push(client)
-            return ActiveArray.length
+            ActiveArray.push(client);
+            return ActiveArray.length;
         }
     })
     return (

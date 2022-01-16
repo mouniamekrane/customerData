@@ -2,15 +2,15 @@
 import './Table.css';
 import { ClientName } from '../Tbody/Name/Name.js'
 import { ClientDescription } from '../Tbody/Description/description.js'
-import { ClientRate } from '../Tbody/Rate/rate.js'
-import { ClientBalance } from '../Tbody/Balance/balance.js'
-import { ClientDeposit } from '../Tbody/Deposit/deposit.js'
-import { ClientStatus } from '../Tbody/Status/status.js'
+import { ClientRate } from '../Tbody/Rate/rate.js';
+import { ClientBalance } from '../Tbody/Balance/balance.js';
+import { ClientDeposit } from '../Tbody/Deposit/deposit.js';
+import { ClientStatus } from '../Tbody/Status/status.js';
 import { ButtonAdd } from '../Tbody/ButtonAdd/button.js';
-import { CountActive } from '../Footer/ActiveClients/activeClients.js'
-import { RowsPerPageClients } from '../Footer/RowsPerPage/RowsPerPage.js'
-import { ClientsOfPage } from '../Footer/PageOf/ClientsOf.js'
-import { NextPageClient } from '../Footer/Pagination/nextPage.js'
+import { CountActive } from '../Footer/ActiveClients/activeClients.js';
+import { RowsPerPageClients } from '../Footer/RowsPerPage/RowsPerPage.js';
+import { ClientsOfPage } from '../Footer/PageOf/ClientsOf.js';
+import { NextPageClient } from '../Footer/Pagination/nextPage.js';
 import { useState } from 'react';
 
 const clients = [{
@@ -266,12 +266,12 @@ export const TableBodyClients = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
-  const nextPaggination = () => {
-    setPage(currentPage = currentPage > 2 ? currentPage - 1 : 0);
+  const previousPage = () => {
+    setPage(currentPage => currentPage > 2 ? currentPage - 1 : 0)
   };
 
-  const previousPagination = () => {
-    setPage(currentPage => `${(currentPage + 1) * rowsPerPage}` < 20 ? currentPage + 1 : 0);
+  const nextPage = () => {
+    setPage(currentPage => `${(currentPage + 1) * rowsPerPage}` < 21 ? currentPage + 1 : 0)
   };
   return (
     <div>
@@ -287,18 +287,18 @@ export const TableBodyClients = () => {
         <thead className="thead">
           <tr>
             <th><input className='checkbox' type='checkbox'></input></th>
-            <th className='styleHeader'>Name<img onClick={() => sorting('name')} src="./images/sort-up.png" alt="" className='imagesortName'></img></th>
+            <th className='styleHeader'>Name<img src="./images/sort-up.png" alt="" className='imagesortName'></img></th>
             <th className='styleHeader'>DESCRIPTION</th>
             <th className='styleHeader'>RATE</th>
             <th className='styleHeader'>BALANCE</th>
             <th className='styleHeader'>DEPOSIT</th>
-            <th className='styleHeader'>STATUS<img onClick={() => sorting('status')} src="./images/sort-up.png" alt="" className='imagesortStatus'></img></th>
+            <th className='styleHeader'>STATUS<img src="./images/sort-up.png" alt="" className='imagesortStatus'></img></th>
             <th className='styleHeader'><img src="./images/point.png" alt="" className='imageMore'></img></th>
             <th className='styleHeader'><i id="sept" class="fa fa-ellipsis-h" aria-hidden="true"></i></th>
           </tr>
         </thead>
         <tbody>
-          {users.filter((val) => {
+          {clients.filter((val) => {
             if (searchElement === "") {
               return val;
             } else if (val.name.toLowerCase().includes(searchElement.toLowerCase()) || val.description.toLowerCase().includes(searchElement.toLowerCase())) {
@@ -323,8 +323,8 @@ export const TableBodyClients = () => {
       <div className='footer'>
         <CountActive ClientsToCount={clients} />
         <RowsPerPageClients />
-        <ClientsOfPage />
-        <NextPageClient nextPage={nextPaggination} previousPage={previousPagination} />
+        <ClientsOfPage totalOf={clients.length} />
+        <NextPageClient previousPage={nextPage} nextPage={previousPage} />
       </div>
     </div>
   )
